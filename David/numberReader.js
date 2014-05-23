@@ -32,10 +32,8 @@
         function numberToString(input) {
             var outputString = "";
             var arr = ["","десет", "стотин", "хиляди"];
-            while (input % 10 != 0) {
+            while (input / 10 != 0) {
                 switch (input % 10) {
-                    case 0: outputString += " ";
-                        break;
                     case 1: outputString += "Едно";
                         break;
                     case 2: outputString += "Две";
@@ -55,22 +53,13 @@
                     case 9: outputString += "Девет";
                         break;
                     default:
+                        outputString += " ";
+                        break;
                 }
                 input = parseInt(input / 10);
-                outputString += ' ';
+                //outputString += ' ';
             }
-            var abc = "";
-            var result = outputString.split(' ');
-            for (var i = 0; i < result.length; i++) {
-                abc += result[i] + arr[i];
-                if (i === 1) {
-                    abc += " и";
-                }
-                else {
-                    abc += " ";
-                }               
-            }
-            return abc;
+            return outputString;
         }
     </script>
 </body>
